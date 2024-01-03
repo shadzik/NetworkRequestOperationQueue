@@ -13,22 +13,22 @@ public typealias FailureBlock = (URLSessionDataTask?, Error?) -> Void
 public typealias ProgressBlock = (URLSessionDataTask?, Float) -> Void
 
 public class NetworkRequestOperation: Operation, NetworkRequestReadyStrategyDelegate {
-    let request: any NetworkRequest
-    let contentMapper: NetworkRequestContentMapper
-    var completion: NetworkRequestCompletion
-    var progressHandler: NetworkRequestProgressHandler?
+    public let request: any NetworkRequest
+    public let contentMapper: NetworkRequestContentMapper
+    public var completion: NetworkRequestCompletion
+    public var progressHandler: NetworkRequestProgressHandler?
     private var mutableData: Data?
     private var expectedContentLength: Int64 = 0
 
-    var runningTask: URLSessionTask?
+    public var runningTask: URLSessionTask?
 
-    var requestPrepareBlock: ((any NetworkRequest) -> Void)?
+    public var requestPrepareBlock: ((any NetworkRequest) -> Void)?
 
     private var success: SuccessBlock?
     private var failure: FailureBlock?
     private var progress: ProgressBlock?
 
-    init(request: any NetworkRequest, contentMapper: NetworkRequestContentMapper) {
+    public init(request: any NetworkRequest, contentMapper: NetworkRequestContentMapper) {
         self.request = request
         self.contentMapper = contentMapper
         self.completion = request.completion
@@ -48,7 +48,7 @@ public class NetworkRequestOperation: Operation, NetworkRequestReadyStrategyDele
         return request.isReady && super.isReady
     }
 
-    func poke() {
+    public func poke() {
         if let strategies = request.readyStrategies {
             for strategy in strategies {
                 strategy.start()

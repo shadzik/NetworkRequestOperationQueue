@@ -10,7 +10,7 @@ import Foundation
 public class NetworkRequestDefaultMapper: NetworkRequestContentMapper {
     let acceptsEmptyResponse: Bool
 
-    init(acceptsEmptyResponse: Bool) {
+    public init(acceptsEmptyResponse: Bool) {
         self.acceptsEmptyResponse = acceptsEmptyResponse
     }
 

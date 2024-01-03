@@ -10,22 +10,22 @@ import UIKit
 
 public class NetworkRequestOperationQueue: OperationQueue {
 
-    var requestPrepareBlock: ((any NetworkRequest) -> Void)? = nil
-    let contentMapper: NetworkRequestContentMapper
+    public var requestPrepareBlock: ((any NetworkRequest) -> Void)? = nil
+    public let contentMapper: NetworkRequestContentMapper
 
-    init(contentMapper: NetworkRequestContentMapper = NetworkRequestDefaultMapper(acceptsEmptyResponse: true)) {
+    public init(contentMapper: NetworkRequestContentMapper = NetworkRequestDefaultMapper(acceptsEmptyResponse: true)) {
         self.contentMapper = contentMapper
     }
 
-    func addRequest(_ request: any NetworkRequest) {
+    public func addRequest(_ request: any NetworkRequest) {
         addRequest(request, forced: false)
     }
 
-    func retryRequest(_ request: any NetworkRequest) {
+    public func retryRequest(_ request: any NetworkRequest) {
         addRequest(request, forced: true)
     }
 
-    func addRequest(_ request: any NetworkRequest, forced: Bool) {
+    public func addRequest(_ request: any NetworkRequest, forced: Bool) {
         if let lastOperation = operations.last as? NetworkRequestOperation {
             if lastOperation.request.isEqualTo(request) && !forced {
                 lastOperation.request.addCompletion(request.completion)
