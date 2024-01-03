@@ -12,7 +12,11 @@ Enqueue your network requests using NetworkRequestOperationQueue.
 
 #### Swift Package Manager
 
-
+```swift
+dependencies: [
+    .package(url: "https://github.com/shadzik/NetworkRequestOperationQueue.git", .upToNextMajor(from: "1.0.0"))
+]
+```
 
 ### Usage
 
