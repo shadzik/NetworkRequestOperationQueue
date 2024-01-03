@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NetworkRequestOperationQueue: OperationQueue {
+open class NetworkRequestOperationQueue: OperationQueue {
 
     var requestPrepareBlock: ((any NetworkRequest) -> Void)? = nil
     let contentMapper: NetworkRequestContentMapper
