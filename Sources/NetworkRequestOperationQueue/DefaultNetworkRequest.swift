@@ -44,7 +44,7 @@ public class DefaultNetworkRequest: NetworkRequest {
     public var parameters: [String : AnyHashable]?
     public var id: String = UUID().uuidString
 
-    init(url: URL, method: NetworkRequestMethod, headers: [String : String]? = nil, parameters: [String : AnyHashable]? = nil, completion: NetworkRequestCompletion?, progressHandler: NetworkRequestProgressHandler? = nil) {
+    public init(url: URL, method: NetworkRequestMethod, headers: [String : String]? = nil, parameters: [String : AnyHashable]? = nil, completion: NetworkRequestCompletion?, progressHandler: NetworkRequestProgressHandler? = nil) {
         self.retryStrategy = nil
         self.readyStrategies = []
         self.errorMapper = nil

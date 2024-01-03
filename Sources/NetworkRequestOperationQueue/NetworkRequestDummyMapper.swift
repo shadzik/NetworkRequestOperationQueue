@@ -8,6 +8,10 @@
 import Foundation
 
 public class NetworkRequestDummyMapper: NetworkRequestContentMapper {
+
+    public init() {
+    }
+
     public func content(from data: Data, error: inout Error?) -> Any? {
         return data
     }
