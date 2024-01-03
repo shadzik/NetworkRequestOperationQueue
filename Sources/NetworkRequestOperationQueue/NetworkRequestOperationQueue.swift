@@ -13,6 +13,11 @@ public class NetworkRequestOperationQueue: OperationQueue {
     public var requestPrepareBlock: ((any NetworkRequest) -> Void)? = nil
     public let contentMapper: NetworkRequestContentMapper
 
+    @available(*, unavailable)
+    public required override init() {
+        fatalError("init() has not been implemented")
+    }
+
     public init(contentMapper: NetworkRequestContentMapper = NetworkRequestDefaultMapper(acceptsEmptyResponse: true)) {
         self.contentMapper = contentMapper
     }
