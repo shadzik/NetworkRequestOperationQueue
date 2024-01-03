@@ -7,17 +7,17 @@
 
 import Foundation
 
-class NetworkRequestReadyBlockStrategy: NetworkRequestReadyStrategy {
-    var delegate: NetworkRequestReadyStrategyDelegate?
-    var isReady: Bool
-    var readyBlock: (NetworkRequestReadyBlockStrategyCompletion) -> Void
+public class NetworkRequestReadyBlockStrategy: NetworkRequestReadyStrategy {
+    public var delegate: NetworkRequestReadyStrategyDelegate?
+    public var isReady: Bool
+    public var readyBlock: (NetworkRequestReadyBlockStrategyCompletion) -> Void
 
-    init(readyBlock: @escaping (NetworkRequestReadyBlockStrategyCompletion) -> Void) {
+    public init(readyBlock: @escaping (NetworkRequestReadyBlockStrategyCompletion) -> Void) {
         self.readyBlock = readyBlock
         self.isReady = false
     }
 
-    func start() {
+    public func start() {
         readyBlock({ [weak self] ready in
             guard let self = self else { return }
             self.isReady = ready

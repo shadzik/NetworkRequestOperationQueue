@@ -7,20 +7,20 @@
 
 import Foundation
 
-class NetworkRequestBlockRetryStrategy: NetworkRequestRetryStrategy {
+public class NetworkRequestBlockRetryStrategy: NetworkRequestRetryStrategy {
 
-    typealias RetryBlock = ([String: AnyHashable]?, Error?) -> Bool
+    public typealias RetryBlock = ([String: AnyHashable]?, Error?) -> Bool
 
     private let retryLimit: Int
     private var retryCount: Int = 0
     private let shouldRetryBlock: RetryBlock
 
-    init(retryLimit: Int, retryBlock: @escaping RetryBlock) {
+    public init(retryLimit: Int, retryBlock: @escaping RetryBlock) {
         self.retryLimit = retryLimit
         self.shouldRetryBlock = retryBlock
     }
 
-    func retryRequest(with response: [String : AnyHashable]?, error: Error?) -> Float {
+    public func retryRequest(with response: [String : AnyHashable]?, error: Error?) -> Float {
         if !shouldRetryBlock(response, error) {
             return 0
         }

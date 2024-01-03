@@ -7,19 +7,19 @@
 
 import Foundation
 
-class NetworkRequestReadyAfterStrategy: NetworkRequestReadyStrategy {
-    var delegate: NetworkRequestReadyStrategyDelegate?
+public class NetworkRequestReadyAfterStrategy: NetworkRequestReadyStrategy {
+    public var delegate: NetworkRequestReadyStrategyDelegate?
 
     private let readyAfter: TimeInterval
     private var timer: Timer?
-    var isReady: Bool
+    public var isReady: Bool
 
-    init(readyAfter: TimeInterval) {
+    public init(readyAfter: TimeInterval) {
         self.readyAfter = readyAfter
         self.isReady = false
     }
 
-    func start() {
+    public func start() {
         timer = Timer.scheduledTimer(timeInterval: readyAfter, target: self, selector: #selector(timerFired), userInfo: nil, repeats: false)
     }
 

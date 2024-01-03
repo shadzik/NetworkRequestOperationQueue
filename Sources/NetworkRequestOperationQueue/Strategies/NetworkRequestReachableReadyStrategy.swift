@@ -8,22 +8,22 @@
 import Foundation
 import Network
 
-enum ReachabilityStatus {
+public enum ReachabilityStatus {
     case connected
     case disconnected
 }
 
-protocol ReachabilityTesterDelegate {
+public protocol ReachabilityTesterDelegate {
     func didChangeReachability(_ status: ReachabilityStatus)
 }
 
-class ReachabilityTester {
+public class ReachabilityTester {
     private let pathMonitor = NWPathMonitor()
     private(set) var isReachable: Bool = false
 
     private var delegate: ReachabilityTesterDelegate?
 
-    init(delegate: ReachabilityTesterDelegate? = nil) {
+    public init(delegate: ReachabilityTesterDelegate? = nil) {
         pathMonitor.pathUpdateHandler = { path in
             switch path.status {
             case .satisfied:
@@ -38,22 +38,22 @@ class ReachabilityTester {
     }
 }
 
-class NetworkRequestReachableReadyStrategy: NetworkRequestReadyStrategy {
+public class NetworkRequestReachableReadyStrategy: NetworkRequestReadyStrategy {
     private var reachabilityTester: ReachabilityTester!
     private var timer: Timer?
     private var didTimeOut: Bool = false
     private var timeout: TimeInterval
-    var delegate: NetworkRequestReadyStrategyDelegate?
+    public var delegate: NetworkRequestReadyStrategyDelegate?
 
-    init(timeout: TimeInterval) {
+    public init(timeout: TimeInterval) {
         self.timeout = timeout
     }
 
-    var isReady: Bool {
+    public var isReady: Bool {
         return reachabilityTester.isReachable == true || didTimeOut
     }
 
-    func start() {
+    public func start() {
         reachabilityTester = ReachabilityTester(delegate: self)
         startTimer()
     }
@@ -78,7 +78,7 @@ class NetworkRequestReachableReadyStrategy: NetworkRequestReadyStrategy {
 }
 
 extension NetworkRequestReachableReadyStrategy: ReachabilityTesterDelegate {
-    func didChangeReachability(_ status: ReachabilityStatus) {
+    public func didChangeReachability(_ status: ReachabilityStatus) {
         self.delegate?.didUpdateReadyState(for: self)
 
         if status == .connected {
