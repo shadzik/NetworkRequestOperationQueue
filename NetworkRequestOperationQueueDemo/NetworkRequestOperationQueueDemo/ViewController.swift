@@ -34,8 +34,6 @@ class ViewController: UIViewController {
         if imageView.image != nil {
             setup()
         }
-
-        let network = NetworkRequestOperationQueue()
     }
 
     private func setup() {

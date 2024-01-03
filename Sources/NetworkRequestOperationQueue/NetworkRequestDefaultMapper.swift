@@ -14,7 +14,7 @@ public class NetworkRequestDefaultMapper: NetworkRequestContentMapper {
         self.acceptsEmptyResponse = acceptsEmptyResponse
     }
 
-    func content(from data: Data, error: inout Error?) -> Any? {
+    public func content(from data: Data, error: inout Error?) -> Any? {
         if acceptsEmptyResponse && data.count == 0 {
             return nil
         }
