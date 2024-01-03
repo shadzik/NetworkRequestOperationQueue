@@ -4,7 +4,7 @@ Enqueue your network requests using NetworkRequestOperationQueue.
 
 ### Benefits
 
-* serial or parrallel
+* serial or parallel
 * prioritize requests
 * add dependencies to requests
 
