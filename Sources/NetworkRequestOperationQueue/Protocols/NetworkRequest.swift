@@ -52,7 +52,7 @@ public enum NetworkRequestPriority: Int, Comparable {
     case high
     case highest
 
-    static func < (lhs: NetworkRequestPriority, rhs: NetworkRequestPriority) -> Bool {
+    static public func < (lhs: NetworkRequestPriority, rhs: NetworkRequestPriority) -> Bool {
         return lhs.rawValue < rhs.rawValue
     }
 }
