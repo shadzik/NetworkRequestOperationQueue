@@ -8,11 +8,11 @@
 
 import UIKit
 
-typealias SuccessBlock = (URLSessionDataTask?, Any?) -> Void
-typealias FailureBlock = (URLSessionDataTask?, Error?) -> Void
-typealias ProgressBlock = (URLSessionDataTask?, Float) -> Void
+public typealias SuccessBlock = (URLSessionDataTask?, Any?) -> Void
+public typealias FailureBlock = (URLSessionDataTask?, Error?) -> Void
+public typealias ProgressBlock = (URLSessionDataTask?, Float) -> Void
 
-class NetworkRequestOperation: Operation, NetworkRequestReadyStrategyDelegate {
+public class NetworkRequestOperation: Operation, NetworkRequestReadyStrategyDelegate {
     let request: any NetworkRequest
     let contentMapper: NetworkRequestContentMapper
     var completion: NetworkRequestCompletion
@@ -44,7 +44,7 @@ class NetworkRequestOperation: Operation, NetworkRequestReadyStrategyDelegate {
         }
     }
 
-    override var isReady: Bool {
+    public override var isReady: Bool {
         return request.isReady && super.isReady
     }
 
@@ -56,7 +56,7 @@ class NetworkRequestOperation: Operation, NetworkRequestReadyStrategyDelegate {
         }
     }
 
-    override func main() {
+    public override func main() {
         var response: Any?
         var headers: [AnyHashable: Any]?
         var responseError: Error?
@@ -127,12 +127,12 @@ class NetworkRequestOperation: Operation, NetworkRequestReadyStrategyDelegate {
     }
 
     // KVO
-    func didUpdateReadyState(for strategy: NetworkRequestReadyStrategy) {
+    public func didUpdateReadyState(for strategy: NetworkRequestReadyStrategy) {
         willChangeValue(forKey: "isReady")
         didChangeValue(forKey: "isReady")
     }
 
-    override func cancel() {
+    override public func cancel() {
         super.cancel()
 
         if runningTask?.state == .running {
@@ -144,12 +144,12 @@ class NetworkRequestOperation: Operation, NetworkRequestReadyStrategyDelegate {
 
 extension NetworkRequestOperation: URLSessionTaskDelegate, URLSessionDataDelegate {
 
-    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
+    public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
         expectedContentLength = response.expectedContentLength
         completionHandler(.allow)
     }
 
-    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+    public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         // serialize task.response here, and fill responseObject
         let data = mutableData
         mutableData = nil
@@ -163,7 +163,7 @@ extension NetworkRequestOperation: URLSessionTaskDelegate, URLSessionDataDelegat
         }
     }
 
-    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+    public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         mutableData?.append(data)
 
         guard let mutableData = mutableData else { return }

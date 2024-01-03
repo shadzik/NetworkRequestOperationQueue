@@ -7,13 +7,13 @@
 
 import Foundation
 
-typealias NetworkRequestReadyBlockStrategyCompletion = (Bool) -> Void
+public typealias NetworkRequestReadyBlockStrategyCompletion = (Bool) -> Void
 
-protocol NetworkRequestReadyStrategyDelegate {
+public protocol NetworkRequestReadyStrategyDelegate {
     func didUpdateReadyState(for strategy: NetworkRequestReadyStrategy)
 }
 
-protocol NetworkRequestReadyStrategy {
+public protocol NetworkRequestReadyStrategy {
     var delegate: NetworkRequestReadyStrategyDelegate? { get set }
     var isReady: Bool { get }
 

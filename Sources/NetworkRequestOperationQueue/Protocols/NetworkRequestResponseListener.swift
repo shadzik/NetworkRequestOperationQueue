@@ -8,6 +8,6 @@
 import Foundation
 
 @objc
-protocol NetworkRequestResponseListener: AnyObject {
+public protocol NetworkRequestResponseListener: AnyObject {
     func requestDidReceive(response: Any?, error: Error?)
 }

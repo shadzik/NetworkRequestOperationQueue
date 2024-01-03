@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkRequestResponseFilteredListener: NetworkRequestResponseListener {
+public class NetworkRequestResponseFilteredListener: NetworkRequestResponseListener {
     let filter: (Any?, Error?) -> Bool
     let callback: (Any?, Error?) -> Void
 
@@ -16,7 +16,7 @@ class NetworkRequestResponseFilteredListener: NetworkRequestResponseListener {
         self.callback = callback
     }
 
-    func requestDidReceive(response: Any?, error: Error?) {
+    public func requestDidReceive(response: Any?, error: Error?) {
         if filter(response, error) {
             callback(response, error)
         }

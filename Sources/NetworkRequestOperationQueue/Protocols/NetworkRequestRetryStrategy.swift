@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol NetworkRequestRetryStrategy {
+public protocol NetworkRequestRetryStrategy {
     func retryRequest(with response: [String: AnyHashable]?, error: Error?) -> Float
 }

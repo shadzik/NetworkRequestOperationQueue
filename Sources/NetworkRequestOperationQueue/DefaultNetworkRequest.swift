@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DefaultNetworkRequest: NetworkRequest {
+public class DefaultNetworkRequest: NetworkRequest {
     var retryStrategy: NetworkRequestRetryStrategy?
     var readyStrategies: [NetworkRequestReadyStrategy]?
     var priority: NetworkRequestPriority = .default

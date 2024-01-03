@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol NetworkRequestContentMapper {
+public protocol NetworkRequestContentMapper {
     func content(from data: Data, error: inout Error?) -> Any?
 }

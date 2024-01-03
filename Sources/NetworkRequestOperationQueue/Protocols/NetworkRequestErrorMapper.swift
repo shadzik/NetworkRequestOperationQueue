@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol NetworkRequestErrorMapper {
+public protocol NetworkRequestErrorMapper {
     func map(error: Error) -> Error
 }

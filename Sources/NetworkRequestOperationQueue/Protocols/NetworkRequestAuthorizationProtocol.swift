@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol NetworkRequestAuthorizationProtocol {
+public protocol NetworkRequestAuthorizationProtocol {
     var headers: [String: String]? { get set }
     var parameters: [String: Any]? { get set }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class NetworkRequestOperationQueue: OperationQueue {
+public class NetworkRequestOperationQueue: OperationQueue {
 
     var requestPrepareBlock: ((any NetworkRequest) -> Void)? = nil
     let contentMapper: NetworkRequestContentMapper
@@ -89,7 +89,7 @@ open class NetworkRequestOperationQueue: OperationQueue {
         }
     }
 
-    override func addOperation(_ op: Operation) {
+    override public func addOperation(_ op: Operation) {
         if let operation = op as? NetworkRequestOperation {
             super.addOperation(operation)
         }

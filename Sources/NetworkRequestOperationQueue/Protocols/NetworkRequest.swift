@@ -8,10 +8,10 @@
 
 import UIKit
 
-typealias NetworkRequestCompletion = (any NetworkRequest, [AnyHashable: Any]?, Any?, Error?) -> Void
-typealias NetworkRequestProgressHandler = (any NetworkRequest, Float) -> Void
+public typealias NetworkRequestCompletion = (any NetworkRequest, [AnyHashable: Any]?, Any?, Error?) -> Void
+public typealias NetworkRequestProgressHandler = (any NetworkRequest, Float) -> Void
 
-enum NetworkRequestMethod: String {
+public enum NetworkRequestMethod: String {
     /// - head: HEAD request
     case head = "HEAD"
     /// - get: GET request
@@ -46,7 +46,7 @@ enum NetworkRequestMethod: String {
     }
 }
 
-enum NetworkRequestPriority: Int, Comparable {
+public enum NetworkRequestPriority: Int, Comparable {
     case low
     case `default`
     case high
@@ -57,7 +57,7 @@ enum NetworkRequestPriority: Int, Comparable {
     }
 }
 
-protocol NetworkRequest: Hashable {
+public protocol NetworkRequest: Hashable {
 
     /// Select a retry strategy should the request fail
     var retryStrategy: NetworkRequestRetryStrategy? { get set }
