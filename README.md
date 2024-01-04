@@ -9,6 +9,7 @@ Enqueue your network requests using NetworkRequestOperationQueue.
 * add dependencies to requests
 * define and use ready strategies
 * define and use retry strategies
+* use predefined content mappers (JSON, data) or easily create your own
 
 ### Instalation
 
@@ -22,7 +23,7 @@ dependencies: [
 
 ### Usage
 
-Please refer to the unit tests to see how it works
+Please refer to our Demo project or the unit tests to see how it works.
 
 #### A bit of history
 
