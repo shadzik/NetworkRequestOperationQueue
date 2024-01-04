@@ -7,6 +7,8 @@ Enqueue your network requests using NetworkRequestOperationQueue.
 * serial or parallel
 * prioritize requests
 * add dependencies to requests
+* define and use ready strategies
+* define and use retry strategies
 
 ### Instalation
 
