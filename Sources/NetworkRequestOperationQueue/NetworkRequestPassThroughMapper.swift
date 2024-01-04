@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class NetworkRequestDummyMapper: NetworkRequestContentMapper {
+public class NetworkRequestPassThroughMapper: NetworkRequestContentMapper {
 
     public init() {
     }

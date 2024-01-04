@@ -82,7 +82,7 @@ class ViewController: UIViewController {
         request.addReadyStrategy(reachabilityStrategy)
         request.retryStrategy = retryStrategy
         if url == url1 || url == url3 || url == url5 {
-            request.contentMapper = NetworkRequestDummyMapper()
+            request.contentMapper = NetworkRequestPassThroughMapper()
         }
 
         requestQueue.addRequest(request)
