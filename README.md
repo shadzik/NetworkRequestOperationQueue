@@ -12,7 +12,7 @@ Enqueue your network requests using NetworkRequestOperationQueue.
 * define and use _retry_ strategies
 * use predefined content mappers (JSON, data) or easily create your own
 
-### Instalation
+### Installation
 
 #### Swift Package Manager
 
